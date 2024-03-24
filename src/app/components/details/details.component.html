@@ -1,0 +1,50 @@
+<mat-card class="listing">
+  <img class="listing-photo" [src]="housingLocation?.photo" alt="Exterior photo of">
+  <div class="details">
+    <h1 class="listing-heading">{{housingLocation?.name}}</h1>
+    <div class="location">
+      <mat-icon>location_on</mat-icon>
+      <p class="listing-location">{{housingLocation?.city}}, {{housingLocation?.state}}</p>
+    </div>
+    <div class="features">
+      <h2 class="section-heading">About this housing location</h2>
+      <ul>
+        <li>Units available: {{housingLocation?.availableUnits}}</li>
+        <li>Does this location have WiFi: {{housingLocation?.wifi ? "Yes" : "No"}}</li>
+        <li>Does this location have Laundry: {{housingLocation?.laundry ? "Yes" : "No"}}</li>
+      </ul>
+    </div>
+    <div class="listing-apply">
+      <h2 class="section-heading">Apply now to live here</h2>
+
+      <form [formGroup]="applyForm" (submit)="onSubmitApplication()">
+
+        <mat-form-field>
+          <mat-label>First Name</mat-label>
+          <input type="text" matInput formControlName="firstName" id="first-name" placeholder="Write your first name">
+          @if (form['lastName'].errors) {
+            <mat-error>Please enter a valid first name</mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Last Name</mat-label>
+          <input type="text" matInput formControlName="lastName" id="last-name" placeholder="Write your last name">
+          @if (form['lastName'].errors) {
+            <mat-error>Please enter a valid last name</mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input type="email" matInput formControlName="email" id="email" placeholder="Ex. pat@example.com" required>
+          @if (form['email'].errors) {
+            <mat-error>Please enter a valid email</mat-error>
+            }
+        </mat-form-field>
+
+        <button mat-raised-button type="submit" [disabled]="applyForm.invalid" [class.btn-disabled]="applyForm.invalid">{{buttonValue}}</button>
+      </form>
+    </div>
+  </div>
+</mat-card>

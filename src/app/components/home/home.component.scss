@@ -1,0 +1,40 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 73vh;
+  padding: 2rem 0 2.5rem;
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+
+    mat-form-field {
+      margin-right: 0.5rem;
+    }
+
+    mat-icon {
+      background-color: #605dc8;
+      color: #fff;
+      font-size: 2rem;
+      height: 2rem;
+      width: 2rem;
+      padding: 0.5rem;
+      margin: 0.2rem 0.3rem;
+      border-radius: 1rem;
+      cursor: pointer;
+    }
+  }
+
+  .result {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
