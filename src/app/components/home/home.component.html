@@ -30,6 +30,12 @@
 
 <body>
   <app-root></app-root>
+  <a href="https://api.whatsapp.com/send?phone=593991748342&text=Hola%20deseo%20informacion%20acerca%20de%20este%20salom%20de%20eventos." class="btn-wsp" target="_blank">
+    <i class="fa fa-whatsapp icono"></i>
+    <!-- <li><a
+      href="https://api.whatsapp.com/send?phone=593991748342&text=Hola%20deseo%20informacion%20acerca%20de%20este%20salom%20de%20eventos."
+      target="_blank" rel="sponsored"><i class="fa fa-whatsapp"></i></a></li> -->
+  </a>
   <!-- ***** Preloader Start ***** -->
   <div id="preloader">
     <div class="jumper">
@@ -51,8 +57,8 @@
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li class="scroll-to-section"><a href="#top" class="active">Inicio</a></li>
-              <li class="scroll-to-section"><a href="#about">Quienes Somos</a></li>
-              <li class="scroll-to-section"><a href="#menu">Menu</a></li>
+              <li class="scroll-to-section"><a href="#about">Quiénes somos</a></li>
+              <li class="scroll-to-section"><a href="#menu">Menú</a></li>
               <li class="scroll-to-section"><a href="#Comentarios">Comentarios</a></li>
 
               <!-- <li class="submenu">
@@ -64,7 +70,7 @@
                                         <li><a href="#">Cumpleaños</a></li>
                                     </ul>
                                 </li> -->
-              <li class="scroll-to-section"><a href="#reservation">Contactanos</a></li>
+              <li class="scroll-to-section"><a href="#reservation">Contáctanos</a></li>
               <!-- <li class="scroll-to-section"><a href="/login">Iniciar Sesion</a></li> -->
             </ul>
             <a class='menu-trigger'>
@@ -89,7 +95,7 @@
                 <h4><img src="./../../assets/images/ICONO-SHALOM-blanco.png"> Shalom</h4>
                 <h6>Recepciones & Eventos</h6>
                 <div class="main-white-button scroll-to-section">
-                  <a href="#reservation">Hacer una Reserva</a>
+                  <a href="#reservation">Hacer una reserva</a>
                 </div>
               </div>
             </div>
@@ -134,7 +140,7 @@
         <div class="col-lg-6 col-md-6 col-xs-12">
           <div class="left-text-content">
             <div class="section-heading">
-              <h6>Quienes Somos</h6>
+              <h6>¿QUIÉNES SOMOS?</h6>
               <h2>Dejamos un hermoso recuerdo en tu corazón</h2>
             </div>
             <p><a href="http://midirectorioec.com/empresa/shalom-recepciones-y-eventos/" target="_blank"
@@ -363,7 +369,7 @@
             <polyline points="8 1 12 5 8 9"></polyline>
           </svg>
         </button>
-        
+
       </div>
       <div id="modal" class="modal">
         <div class="cardmerg">
@@ -406,12 +412,12 @@
         <ng-container *ngFor="let item of item$ | async; let i = index">
           <div *ngIf="i < 6" class="project-box"> <!-- Agrega esta línea para limitar a los primeros 6 comentarios -->
             <div class="card-body">
-              <h5 class="card-title">{{ item.nombres }}</h5>
+              <h3 class="card-title">{{ item.nombres }}</h3>
               <p class="card-text">{{ item.comentario }}</p>
               <!-- <p class="card-text">{{ item.valorizacion }}</p> -->
               <div class="star-rating">
                 <span *ngFor="let star of getStarsArray(item.valorizacion)" class="star">&#9733;</span>
-            </div>
+              </div>
             </div>
           </div>
         </ng-container>
@@ -557,10 +563,9 @@
           <div class="left-text-content">
             <div class="section-heading">
               <h6>Contáctanos</h6>
-              <h2>Aquí puede hacer una reserva o simplemente caminar a nuestro salón de eventos</h2>
+              <h2>Agende su próximo evento o acérquese a nuestra oficina, usted decide.</h2>
             </div>
-            <p>Si deseas acercarte a nuestro local para una mejor asesoría, te dejamos la dirección:
-              Quevedo, San Camilo, calles México y Juan Montavo.</p>
+            <p>Estamos ubicados en: Quevedo, San Camilo, calles México y Juan Montavo.</p>
             <div class="row">
               <div class="col-lg-6">
                 <div class="phone">
