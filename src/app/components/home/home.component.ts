@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 
 interface Item {
 	nombres: string,
-	valorizacion: string,
+	valorizacion: number,
 	comentario: string,
   };
 @Component({
@@ -33,7 +33,11 @@ export class HomeComponent {
 	  const itemCollection = collection(this.firestore, 'Coments');
 	  this.item$ = collectionData(itemCollection) as Observable<Item[]>;
 	}
+	getStarsArray(valorizacion: number): number[] {
+		return Array(valorizacion).fill(0).map((_, index) => index + 1);
+	  }
   }
+  
 // export class HomeComponent implements OnInit {
 // 	housingLocationList: HousingLocation[] = [];
 // 	housingService: HousingService = inject(HousingService);
