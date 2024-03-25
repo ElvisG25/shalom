@@ -1,65 +1,74 @@
-import { Component, OnInit, inject } from "@angular/core";
-import { HousingLocationComponent } from "../housing-location/housing-location.component";
-import { HousingLocation } from "../../models/housing-location";
-import { HousingService } from "../../services/housing.service";
-import { FormBuilder, FormGroup, ReactiveFormsModule  } from "@angular/forms";
+import { Component, OnInit, inject } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { AppComponent } from "../../app.component";
+import { Observable } from 'rxjs';
+import { Firestore, collection, collectionData } from '@angular/fire/firestore';
+import { CommonModule } from '@angular/common';
 
-import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatInputModule } from "@angular/material/input";
-import {MatButtonModule} from '@angular/material/button';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import { MatIconModule } from "@angular/material/icon";
-
+interface Item {
+	nombres: string,
+	valorizacion: string,
+	comentario: string,
+  };
 @Component({
 	selector: "app-home",
 	standalone: true,
-	imports: [
-		HousingLocationComponent,
-    ReactiveFormsModule,
-		MatFormFieldModule,
-		MatInputModule,
-    MatButtonModule,
-    MatTooltipModule,
-		MatIconModule,
-	],
+	imports: [RouterLink, AppComponent, RouterOutlet,CommonModule]
+	// 	HousingLocationComponent,
+    // ReactiveFormsModule,
+	// 	MatFormFieldModule,
+	// 	MatInputModule,
+    // MatButtonModule,
+    // MatTooltipModule,
+	// 	MatIconModule,
+	// 	DashboardComponent
+	,
 	templateUrl: "./home.component.html",
 	styleUrl: "./home.component.scss",
 })
-export class HomeComponent implements OnInit {
-	housingLocationList: HousingLocation[] = [];
-	housingService: HousingService = inject(HousingService);
-	filteredLocationList: HousingLocation[] = [];
-  results = true;
-
-  filterForm: FormGroup;
-
-	constructor(private formBuilder: FormBuilder) {
-    this.filterForm = this.formBuilder.group({
-      filter: [''],
-    });
+export class HomeComponent {
+	item$: Observable<Item[]>;
+	firestore: Firestore = inject(Firestore);
+	constructor() {
+	  const itemCollection = collection(this.firestore, 'Coments');
+	  this.item$ = collectionData(itemCollection) as Observable<Item[]>;
 	}
-
-  ngOnInit() {
-    this.housingService.getAllHousingLocations().subscribe((data) => {
-			this.housingLocationList = data;
-			this.filteredLocationList = this.housingLocationList;
-		});
   }
+// export class HomeComponent implements OnInit {
+// 	housingLocationList: HousingLocation[] = [];
+// 	housingService: HousingService = inject(HousingService);
+// 	filteredLocationList: HousingLocation[] = [];
+//   results = true;
 
-	filterResults() {
-    const text = this.filterForm.get('filter')?.value;
-		if (!text) {
-			this.filteredLocationList = this.housingLocationList;
-		}
+//   filterForm: FormGroup;
 
-		this.filteredLocationList = this.housingLocationList.filter(
-			(housingLocation) =>
-				housingLocation.city.toLowerCase().includes(text.toLowerCase())
-		);
-	}
+// 	constructor(private formBuilder: FormBuilder) {
+//     this.filterForm = this.formBuilder.group({
+//       filter: [''],
+//     });
+// 	}
 
-  clearFilter() {
-    this.filteredLocationList = [...this.housingLocationList];
-    this.filterForm.get('filter')?.setValue('');
-  }
-}
+//   ngOnInit() {
+//     this.housingService.getAllHousingLocations().subscribe((data) => {
+// 			this.housingLocationList = data;
+// 			this.filteredLocationList = this.housingLocationList;
+// 		});
+//   }
+
+// 	filterResults() {
+//     const text = this.filterForm.get('filter')?.value;
+// 		if (!text) {
+// 			this.filteredLocationList = this.housingLocationList;
+// 		}
+
+// 		this.filteredLocationList = this.housingLocationList.filter(
+// 			(housingLocation) =>
+// 				housingLocation.city.toLowerCase().includes(text.toLowerCase())
+// 		);
+// 	}
+
+//   clearFilter() {
+//     this.filteredLocationList = [...this.housingLocationList];
+//     this.filterForm.get('filter')?.setValue('');
+//   }
+// }
