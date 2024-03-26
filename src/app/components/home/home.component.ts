@@ -30,6 +30,12 @@ export class HomeComponent implements OnInit {
 	getStarsArray(valorizacion: number): number[] {
 		return Array(valorizacion).fill(0).map((_, index) => index + 1);
 	}
+	selectedTab: string = 'Arroces'; // Tab seleccionado por defecto
+
+    // Método para cambiar el tab seleccionado
+    selectTab(tabName: string) {
+        this.selectedTab = tabName;
+    }
 	ngOnInit() {
 		this.cargarscripts.cargarScript('popper');
 		this.cargarscripts.cargarScript('jquery-2.1.0.min');
