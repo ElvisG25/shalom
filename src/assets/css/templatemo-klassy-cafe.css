@@ -213,11 +213,13 @@ body {
     margin-bottom: 60px;
   }
 }
-.section{
+
+.section {
   padding-block: 5em;
 }
+
 /* ----- COMMET INFO ----- */
-.commet-info{
+.commet-info {
   position: relative;
   display: flex;
   align-items: center;
@@ -229,12 +231,14 @@ body {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   border-radius: 20px;
 }
-.commet-info p{
+
+.commet-info p {
   text-align: center;
   font-size: 15px;
   color: #777;
 }
-.commet-btn button{
+
+.commet-btn button {
   position: absolute;
   right: 20px;
   bottom: 20px;
@@ -242,9 +246,11 @@ body {
   color: var(--color-white);
   border-radius: 30px;
 }
-.commet-btn button:hover{
+
+.commet-btn button:hover {
   background: var(--first-color-hover);
 }
+
 .main-white-button a {
   font-size: 13px;
   color: #9c8729;
@@ -258,36 +264,45 @@ body {
 
 /* -- ## --- RESUABLE CSS -- ## -- */
 /* ----- PROJECTS BOX ----- */
-.project-container{
+.project-container {
   display: flex;
   width: 100%;
   justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
 }
-.project-box{
+
+.project-box {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center;/* Centra horizontalmente */
+  text-align: center;/* Centra el texto */
   flex-direction: column;
-  width: 30%;
+  width: calc(33.33% - 20px);/* Ajusta el ancho de las tarjetas */
   height: 250px;
   background: var(--color-white);
   border-radius: 20px;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
   overflow: hidden;
+  max-width: 300px;/* Ancho máximo de la tarjeta */
+
 }
-.project-box>i{
+
+.project-box>i {
   font-size: 50px;
   color: #00B5E7;
   margin-bottom: 25px;
 }
-.project-box label{
+
+.project-box label {
   font-size: 15px;
   color: #777;
+  margin-top: 10px;
 }
-.project-box::after, .contact-info::after{
+
+.project-box::after,
+.contact-info::after {
   content: "";
   position: absolute;
   bottom: -100%;
@@ -297,36 +312,191 @@ body {
   transition: .4s;
   z-index: 1;
 }
+
 .project-box:hover.project-box::after,
-.contact-info:hover.contact-info::after{
+.contact-info:hover.contact-info::after {
   bottom: 0;
 }
+
 .project-box:hover.project-box i,
 .project-box:hover.project-box>h3,
-.project-box:hover.project-box>label{
+.project-box:hover.project-box>label {
   color: var(--color-white);
   z-index: 2;
 }
+
+@media (max-width: 992px) {
+  .left-content {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .left-content h4,
+  .left-content h6 {
+    font-size: 1.5em;
+  }
+  .project-container {
+    flex-direction: column; /* Cambia la dirección del contenedor a columna */
+    align-items: center; /* Centra los elementos en el eje horizontal */
+  }
+
+  .project-box {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    margin-bottom: 20px; /* Agrega un margen inferior entre las tarjetas */
+  }
+}
+
+@media (max-width: 576px) {
+
+  .left-content h4,
+  .left-content h6 {
+    font-size: 1.2em;
+  }
+}
+
+.rating:not(:checked)>input {
+  position: absolute;
+  appearance: none;
+}
+
+.rating:not(:checked)>label {
+  float: right;
+  cursor: pointer;
+  font-size: 30px;
+  color: #666;
+}
+
+.rating:not(:checked)>label:before {
+  content: '★';
+}
+
+.rating>input:checked+label:hover,
+.rating>input:checked+label:hover~label,
+.rating>input:checked~label:hover,
+.rating>input:checked~label:hover~label,
+.rating>label:hover~input:checked~label {
+  color: #e58e09;
+}
+
+.rating:not(:checked)>label:hover,
+.rating:not(:checked)>label:hover~label {
+  color: #ff9e0b;
+}
+
+.rating>input:checked~label {
+  color: #ffa723;
+}
+
+.comic-button {
+  position: absolute;
+  top: 70px;
+  /* Ajusta la distancia desde la parte superior según tus necesidades */
+  right: 5px;
+  /* Ajusta la distancia desde el lado derecho según tus necesidades */
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #cead1a;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px #000;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.comic-button:hover {
+  background-color: #fff;
+  color: #cead1a;
+  border: 2px solid #cead1a;
+  box-shadow: 5px 5px 0px #cead1a;
+}
+
+.comic-button:active {
+  background-color: #fcf414;
+  box-shadow: none;
+  transform: translateY(4px);
+}
+
+.seccion_button {
+  position: relative;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 25% auto;
+  padding: 10px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.star-rating {
+  color: #f8ce0b;
+  /* Color de las estrellas */
+}
+
+.star {
+  font-size: 26px;
+  /* Tamaño de las estrellas */
+}
+
+
 /* ----- FIN PROJECTS BOX ----- */
 
-.top-header{
+.top-header {
   text-align: center;
   margin-bottom: 5em;
 }
-.top-header h1{
+
+.top-header h1 {
   font-weight: 600;
   color: var(--text-color-second);
   margin-bottom: 10px;
 }
-.top-header span{
+
+.top-header span {
   color: #999;
 }
-h3{
+
+h3 {
   font-size: 20px;
   font-weight: 600;
   color: var(--text-color-second);
   margin-bottom: 15px;
 }
+
 /* -- ## ---FIN RESUABLE CSS -- ## -- */
 .main-white-button a:hover {
   opacity: 0.9;
@@ -902,11 +1072,18 @@ banner
 }
 
 .img-fill img {
-  min-height: 100%;
+  /* min-height: 100%;
   min-width: 100%;
   position: relative;
   display: inline-block;
-  max-width: none;
+  max-width: none; */
+  min-height: 100%;
+  min-width: 100%;
+  max-width: 100%; /* Hace que la imagen se adapte al 100% del ancho del contenedor */
+  height: auto; /* Permite que la altura se ajuste automáticamente para mantener la proporción de la imagen */
+  position: relative;
+  display: block; /* Cambia a display: block para evitar espacios no deseados debajo de la imagen */
+  margin: 0 auto; /* Centra la imagen horizontalmente dentro de su contenedor */
 }
 
 *,
@@ -944,21 +1121,6 @@ banner
 
 /* ==== Slider Style === */
 .Modern-Slider .item .img-fill {
-  /* height:100%;
-  max-height: 700px;
-  background:#000;
-  width: 100vw;
-  max-width: 875px;
-  min-width: 100px;
-  margin: auto;
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  border: 1px solid #afafaf;
-  padding: 5px;
-  transition: all .5s;
-  border-radius: 3px; */
-  
   max-width: 100%;
   height: auto;
   object-fit: contain;
@@ -972,7 +1134,7 @@ banner
 
 .Modern-Slider .item .info>div {
   display: inline-block !important;
-  vertical-align: middle; 
+  vertical-align: middle;
 }
 
 .Modern-Slider .NextArrow {
@@ -1217,6 +1379,7 @@ menu
   background-repeat: no-repeat;
   overflow: hidden;
 }
+
 
 .card1 {
   background-image: url(../images/menu-item-01.jpg);

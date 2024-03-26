@@ -30,7 +30,8 @@
 
 <body>
   <app-root></app-root>
-  <a href="https://api.whatsapp.com/send?phone=593991748342&text=Hola%20deseo%20informacion%20acerca%20de%20este%20salom%20de%20eventos." class="btn-wsp" target="_blank">
+  <a href="https://api.whatsapp.com/send?phone=593991748342&text=Hola%20deseo%20informacion%20acerca%20de%20este%20salom%20de%20eventos."
+    class="btn-wsp" target="_blank">
     <i class="fa fa-whatsapp icono"></i>
   </a>
   <!-- ***** Preloader Start ***** -->
@@ -57,18 +58,7 @@
               <li class="scroll-to-section"><a href="#about">Quiénes somos</a></li>
               <li class="scroll-to-section"><a href="#menu">Menú</a></li>
               <li class="scroll-to-section"><a href="#Comentarios">Comentarios</a></li>
-
-              <!-- <li class="submenu">
-                                    <a href="#">Comentarios</a>
-                                    <ul>
-                                        <li><a href="#">Bodas</a></li>
-                                        <li><a href="#">Quinceañeras</a></li>
-                                        <li><a href="#">Graduaciones</a></li>
-                                        <li><a href="#">Cumpleaños</a></li>
-                                    </ul>
-                                </li> -->
               <li class="scroll-to-section"><a href="#reservation">Contáctanos</a></li>
-              <!-- <li class="scroll-to-section"><a href="/login">Iniciar Sesion</a></li> -->
             </ul>
             <a class='menu-trigger'>
               <span>Menu</span>
@@ -174,7 +164,6 @@
               <br>
               <a href="https://www.youtube.com/watch?v=Yzcx2AM5viw" target="_blank" rel="sponsored"><i
                   class="fa fa-play"></i> </a>
-              <!--<a rel="sponsored" href="https://www.youtube.com/watch?v=Yzcx2AM5viw"><i class="fa fa-play"></i></a>-->
               <img src="../../assets/images/about-video-bg.jpg" alt="">
             </div>
           </div>
@@ -332,23 +321,6 @@
             </div>
           </div>
         </div>
-        <!--<div class="col-lg-4">
-                    <div class="chef-item">
-                        <div class="thumb">
-                            <div class="overlay"></div>
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google"></i></a></li>
-                            </ul>
-                            <img src="../../assets/images/chefs-03.jpg" alt="Chef #3">
-                        </div>
-                        <div class="down-content">
-                            <h4>Peter Perkson</h4>
-                            <span>Pancake Chef</span>
-                        </div>
-                    </div>
-                </div>-->
       </div>
     </div>
   </section>
@@ -358,7 +330,6 @@
   <section class="section" id="Comentarios">
     <div class="container">
       <div class="seccion_button">
-        <!-- <button id="comentar-btn" class="comic-button">Tu opinión es importante</button> -->
         <button class="cta" id="comentar-btn">
           <span>Tu opinión es importante</span>
           <svg width="15px" height="10px" viewBox="0 0 13 10">
@@ -381,7 +352,7 @@
               <fieldset>
                 <select value="number-guests" name="number-guests" id="number-guests" required="">
                   <option value="number-guests"></option>
-                  <option name="1" id="1">1</option>
+                  <option name="1" id="1" (select)="1">1</option>
                   <option name="2" id="2">2</option>
                   <option name="3" id="3">3</option>
                   <option name="4" id="4">4</option>
@@ -411,7 +382,6 @@
             <div class="card-body">
               <h3 class="card-title">{{ item.nombres }}</h3>
               <p class="card-text">{{ item.comentario }}</p>
-              <!-- <p class="card-text">{{ item.valorizacion }}</p> -->
               <div class="star-rating">
                 <span *ngFor="let star of getStarsArray(item.valorizacion)" class="star">&#9733;</span>
               </div>
@@ -419,135 +389,6 @@
           </div>
         </ng-container>
       </div>
-      <!-- <div class="project-container">
-        <div class="project-box">
-          <ng-container *ngFor="let item of item$ | async; let i = index">
-            <div *ngIf="i < 6" class="card">
-              <h3>{{item.nombres}}</h3>
-              <label>{{ item.comentario}}</label>
-              <label>{{ item.valorizacion}}</label>
-            </div>
-          </ng-container>
-        </div> 
-
-        <div class="project-box">
-          <i class="uil uil-briefcase-alt"></i>
-          <h3>Roberto Guales</h3>
-          <label>Increíble experiencia en este salón
-            de eventos! El servicio fue impecable y la comida estuvo fuera de serie.
-            ¡Definitivamente volveremos para futuras celebraciones!</label>
-          <div class="rating">
-            <input value="5" name="rate5" id="star5" type="radio">
-            <label title="text" for="star5"></label>
-            <input value="4" name="rate4" id="star4" type="radio" checked="">
-            <label title="text" for="star4"></label>
-            <input value="3" name="rate3" id="star3" type="radio">
-            <label title="text" for="star3"></label>
-            <input value="2" name="rate2" id="star2" type="radio">
-            <label title="text" for="star2"></label>
-            <input value="1" name="rate1" id="star1" type="radio">
-            <label title="text" for="star1"></label>
-          </div>
-          <br>
-        </div>
-        <div class="project-box">
-          <i class="uil uil-users-alt"></i>
-          <h3>Sofía Rodríguez</h3>
-          <label>No puedo elogiar lo suficiente el servicio excepcional y la comida deliciosa que disfrutamos
-            en nuestro evento en este lugar. ¡Cada detalle fue atendido con perfección!</label>
-          <div class="rating">
-            <input value="10" name="rate10" id="star10" type="radio" checked="">
-            <label title="text" for="star10"></label>
-            <input value="9" name="rate9" id="star9" type="radio">
-            <label title="text" for="star9"></label>
-            <input value="8" name="rate8" id="star8" type="radio">
-            <label title="text" for="star8"></label>
-            <input value="7" name="rate7" id="star7" type="radio">
-            <label title="text" for="star7"></label>
-            <input value="6" name="rate6" id="star6" type="radio">
-            <label title="text" for="star6"></label>
-          </div>
-          <br>
-        </div>
-        <div class="project-box">
-          <i class="uil uil-award"></i>
-          <h3>Alejandro Ramos</h3>
-          <label>Desde el momento en que entramos, nos sentimos atendidos de manera excepcional. El personal
-            fue amable y profesional, y la comida fue simplemente deliciosa. ¡Altamente recomendado!</label>
-          <div class="rating">
-            <input value="5" name="rate15" id="star5" type="radio" checked="">
-            <label title="text" for="star5"></label>
-            <input value="4" name="rate14" id="star4" type="radio">
-            <label title="text" for="star4"></label>
-            <input value="3" name="rate13" id="star3" type="radio">
-            <label title="text" for="star3"></label>
-            <input value="2" name="rate12" id="star2" type="radio">
-            <label title="text" for="star2"></label>
-            <input value="1" name="rate11" id="star1" type="radio">
-            <label title="text" for="star1"></label>
-          </div>
-          <br>
-        </div>
-        <div class="project-box">
-          <i class="uil uil-briefcase-alt"></i>
-          <h3>Carolina Vargas</h3>
-          <label>¡Una experiencia de cinco estrellas! El equipo del salón de eventos superó nuestras
-            expectativas con su atención al detalle y su comida exquisita. ¡Sin duda alguna, el mejor lugar
-            para celebrar cualquier ocasión especial!</label>
-          <div class="rating">
-            <input value="5" name="rate20" id="star5" type="radio" checked="">
-            <label title="text" for="star5"></label>
-            <input value="4" name="rate19" id="star4" type="radio">
-            <label title="text" for="star4"></label>
-            <input value="3" name="rate18" id="star3" type="radio">
-            <label title="text" for="star3"></label>
-            <input value="2" name="rate17" id="star2" type="radio">
-            <label title="text" for="star2"></label>
-            <input value="1" name="rate16" id="star1" type="radio">
-            <label title="text" for="star1"></label>
-          </div>
-          <br>
-        </div>
-        <div class="project-box">
-          <i class="uil uil-users-alt"></i>
-          <h3>Martín Herrera</h3>
-          <label>Nuestro evento en este salón fue simplemente perfecto. El personal fue amable y servicial, y
-            la comida fue absolutamente deliciosa. ¡No podríamos haber pedido nada mejor!</label>
-          <div class="rating">
-            <input value="5" name="rate25" id="star5" type="radio">
-            <label title="text" for="star5"></label>
-            <input value="4" name="rate24" id="star4" type="radio" checked="">
-            <label title="text" for="star4"></label>
-            <input value="3" name="rate23" id="star3" type="radio">
-            <label title="text" for="star3"></label>
-            <input value="2" name="rate22" id="star2" type="radio">
-            <label title="text" for="star2"></label>
-            <input value="1" name="rate21" id="star1" type="radio">
-            <label title="text" for="star1"></label>
-          </div>
-          <br>
-        </div>
-        <div class="project-box">
-          <i class="uil uil-award"></i>
-          <h3>Susana López</h3>
-          <label>El servicio de principio a fin fue excepcional. La comida era exquisita y presentada con
-            elegancia. ¡Sin duda alguna, este lugar se ha convertido en nuestro favorito para celebrar
-            momentos especiales!</label>
-          <div class="rating">
-            <input value="5" name="rate" id="star5" type="radio" checked="">
-            <label title="text" for="star5"></label>
-            <input value="4" name="rate" id="star4" type="radio">
-            <label title="text" for="star4"></label>
-            <input value="3" name="rate" id="star3" type="radio">
-            <label title="text" for="star3"></label>
-            <input value="2" name="rate" id="star2" type="radio">
-            <label title="text" for="star2"></label>
-            <input value="1" name="rate" id="star1" type="radio">
-            <label title="text" for="star1"></label>
-          </div>
-          <br>
-        </div>
-      </div>-->
     </div>
   </section>
   <!-- *****Fin del Área de project box ***** -->
@@ -585,8 +426,7 @@
         <div class="col-lg-6">
           <div class="contact-form">
             <!-- <form id="form"> -->
-            <form id="contact" action="https://formsubmit.co/elvisgonzales86@gmail.com" method="POST">
-              <!-- <form id="contact" action="https://formsubmit.co/elvisgonzales86@gmail.com" method="post"> -->
+            <form id="contact" action="https://formsubmit.co/shalomrecepcioneseventos@gmail.com" method="POST">
               <div class="row">
                 <div class="col-lg-12">
                   <h4>Reserva tu evento</h4>
@@ -657,517 +497,532 @@
   </section>
   <!-- ***** Final del área de reserva ***** -->
 
-  <!-- ***** Inicio del área de menú ***** -->
-  <section class="section" id="offers">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 offset-lg-12 text-center">
-          <div class="section-heading">
-            <h6>Nuestro buffet </h6>
-            <h2>Un bufet inolvidable para los amantes de la buena comida. Donde desatarás tus sentidos con
-              nuestra variedades de platos exquisitamente preparados.</h2>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="row" id="tabs">
-            <div class="col-lg-12">
-              <div class="heading-tabs">
-                <div class="row">
-                  <div class="col-lg-4 offset-lg-4">
-                    <ul>
-                      <li><a href='#Arroces'><img src="../../assets/images/tab-icon-arroces.png" alt="">Arroces</a></li>
-                      <li><a href='#Carnes'><img src="../../assets/images/tab-icon-carnes.png" alt="">Carnes</a></li>
-                      <li><a href='#Guarniciones'><img src="../../assets/images/tab-icon-guarniciones.png"
-                            alt="">Guarniciones</a></li>
-                      <!-- <li><a href='#Entradas'><img src="../../assets/images/tab-icon-entradas.png" alt="">Entradas</a></li>
-                                          <li><a href='#Postres'><img src="../../assets/images/tab-icon-postres.png" alt="">Postres</a></li> -->
-                    </ul>
+    <!-- ***** Inicio del área de menú ***** -->
+    <section class="section" id="offers">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12 offset-lg-12 text-center">
+                  <div class="section-heading">
+                      <h6>Nuestro buffet </h6>
+                      <h2>Un bufet inolvidable para los amantes de la buena comida. Donde desatarás tus sentidos con
+                          nuestra variedades de platos exquisitamente preparados.</h2>
                   </div>
-                </div>
               </div>
-            </div>
-            <div class="col-lg-12">
-              <section class='tabs-content'>
-                <article id='Arroces'>
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="row">
-                        <div class="left-list">
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-arroz-1.jpg" alt="">
-                              <h4><br>Arroz de Novia<br></h4>
-                              <div class="price">
-                                <h6>#1</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-arroz-2.jpg" alt="">
-                              <h4>Arroz festivo con almendra<br></h4>
-                              <div class="price">
-                                <h6>#2</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-arroz-3.jpg" alt="">
-                              <h4>Arroz con tocino y champiñones</h4>
-                              <div class="price">
-                                <h6>#3</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-arroz-4.jpg" alt="">
-                              <h4>Arroz con choclo y crema</h4>
-                              <div class="price">
-                                <h6>#4</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-arroz-5.jpg" alt="">
-                              <h4><br>Arroz al perefil<br></h4>
-                              <div class="price">
-                                <h6>#5</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-arroz-6.jpg" alt="">
-                              <h4>Arroz con vino a las finas hierbas</h4>
-                              <div class="price">
-                                <h6>#6</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-arroz-7.jpg" alt="">
-                              <h4>Arroz con queso y almendra</h4>
-                              <div class="price">
-                                <h6>#7</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-arroz-8.jpg" alt="">
-                              <h4>Arroz cremoso con tocino al azafrán</h4>
-                              <div class="price">
-                                <h6>#8</h6>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="row">
-                        <div class="right-list">
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-arroz-9.jpg" alt="">
-                              <h4><br>Arroz fiestero<br></h4>
-                              <div class="price">
-                                <h6>#9</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-arroz-10.jpg" alt="">
-                              <h4><br>Arroz de reyes<br></h4>
-                              <div class="price">
-                                <h6>#10</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-arroz-11.jpg" alt="">
-                              <h4><br>Arroz con nueces<br></h4>
-                              <div class="price">
-                                <h6>#11</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-arroz-12.jpg" alt="">
-                              <h4><br>Arroz al curry<br></h4>
-                              <div class="price">
-                                <h6>#12</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-arroz-13.jpg" alt="">
-                              <h4>Arroz 3 delicias (arbejita, zanahoria y jamon)</h4>
-                              <div class="price">
-                                <h6>#13</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-arroz-14.jpg" alt="">
-                              <h4><br>Arroz con perefil o albahaca<br></h4>
-                              <div class="price">
-                                <h6>#14</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-arroz-15.JPG" alt="">
-                              <h4><br>Arroz Festivo<br></h4>
-                              <div class="price">
-                                <h6>#15</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-arroz-16.jpg" alt="">
-                              <h4>Arroz con choclo</h4>
-                              <div class="price">
-                                <h6>#16</h6>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article id='Carnes'>
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="row">
-                        <div class="left-list">
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-04.png" alt="">
-                              <h4>- Lomo Fino <br>- Pollo deshuesado en salsa BBQ</h4>
-                              <div class="price">
-                                <h6>#1</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-05.png" alt="">
-                              <h4>- Cerdo agridulce con piña o durazno<br>- Pollo en salsa
-                                de Jhon Fred</h4>
-                              <div class="price">
-                                <h6>#2</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-06.png" alt="">
-                              <h4>- Pollo en salsa de 5 sabores<br>- Lomo enrollado cerdo
-                                o res</h4>
-                              <div class="price">
-                                <h6>#3</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-06.png" alt="">
-                              <h4>- Cerdo en salsa de ciruela<br>- Pollo al Brandy</h4>
-                              <div class="price">
-                                <h6>#4</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-06.png" alt="">
-                              <h4>- Salón en salsa vino<br>- Medallones de pollo con
-                                espinaca y jamón en salsa dorada</h4>
-                              <div class="price">
-                                <h6>#5</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-06.png" alt="">
-                              <h4>- Medallones Hawái<br>- Salón en salsa vino</h4>
-                              <div class="price">
-                                <h6>#6</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-06.png" alt="">
-                              <h4>- Lomo fino en salsa de hongos Champiñones<br>- Pollo al
-                                Whisky y vainilla</h4>
-                              <div class="price">
-                                <h6>#7</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-06.png" alt="">
-                              <h4>- Pollo relleno de carne y tocino<br>- Jamón glaseado
-                                con piña</h4>
-                              <div class="price">
-                                <h6>#8</h6>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="row">
-                        <div class="right-list">
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-01.png" alt="">
-                              <h4>- Pollo deshuesado con fruta<br>- Cerdo al Vodka</h4>
-                              <div class="price">
-                                <h6>#9</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-02.png" alt="">
-                              <h4>- Lomo fino en salsa de tocino<br>- Pollo deshuesado
-                                envinado</h4>
-                              <div class="price">
-                                <h6>#10</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-03.png" alt="">
-                              <h4>- Pollo en salsa de Champange<br>- Cerdo Hawái</h4>
-                              <div class="price">
-                                <h6>#11</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-01.png" alt="">
-                              <h4>- Medallones de lomo fino<br>- Pollo en salsa de queso y
-                                orégano</h4>
-                              <div class="price">
-                                <h6>#12</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-01.png" alt="">
-                              <h4>- Cerdo en salsa de Vodka y naranja<br>- Pollo en salsa
-                                de champiñones</h4>
-                              <div class="price">
-                                <h6>#13</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-01.png" alt="">
-                              <h4>- Cordón Blue<br>- Lasaña de Pollo / Carne</h4>
-                              <div class="price">
-                                <h6>#14</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-01.png" alt="">
-                              <h4>- Stick a la mostaza y pimienta<br>- Pollo con
-                                champiñones</h4>
-                              <div class="price">
-                                <h6>#15</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-01.png" alt="">
-                              <h4>- Pollo relleno con tocino jamón carne y queso
-                                cheldar<br>- Jamón glaseado con piña</h4>
-                              <div class="price">
-                                <h6>#16</h6>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article id='Guarniciones'>
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="row">
-                        <div class="left-list">
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-ensaladas-1.jpg" alt="">
-                              <h4><br>Ensalada Hawaiana<br></h4>
-                              <div class="price">
-                                <h6>#1</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-ensaladas-2.jpg" alt="">
-                              <h4><br>Ensalada multicolor<br></h4>
-                              <div class="price">
-                                <h6>#2</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-ensaladas-3.jpg" alt="">
-                              <h4><br>Papas gratinadas<br></h4>
-                              <div class="price">
-                                <h6>#3</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-ensaladas-4.jpg" alt="">
-                              <h4>Ensalada fría o Lasaña de vegetales<br></h4>
-                              <div class="price">
-                                <h6>#4</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-ensaladas-5.jpg" alt="">
-                              <h4>Ensalada con choclo y jamón<br></h4>
-                              <div class="price">
-                                <h6>#5</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-ensaladas-6.jpg" alt="">
-                              <h4><br>Pastel de vegetales<br></h4>
-                              <div class="price">
-                                <h6>#6</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-ensaladas-8.jpg" alt="">
-                              <h4>Jardinera de legumbres al vapor<br></h4>
-                              <div class="price">
-                                <h6>#7</h6>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="row">
-                        <div class="right-list">
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-ensaladas-9.jpg" alt="">
-                              <h4>Papas gratinadas con tocino y cebolla</h4>
-                              <div class="price">
-                                <h6>#8</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-ensaladas-10.jpg" alt="">
-                              <h4><br>Lasaña de vegetales<br></h4>
-                              <div class="price">
-                                <h6>#9</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-ensaladas-11.jpg" alt="">
-                              <h4><br>Ensalada Italiana fría<br></h4>
-                              <div class="price">
-                                <h6>#10</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-ensaladas-12.png" alt="">
-                              <h4><br>Vegetales a la yogurnesa<br></h4>
-                              <div class="price">
-                                <h6>#11</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-ensaladas-13.jpg" alt="">
-                              <h4>Papas gratinadas (con tocino, jamón y champiñones)</h4>
-                              <div class="price">
-                                <h6>#12</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-ensaladas-14.jpg" alt="">
-                              <h4><br>Pan de Ajo o ensalada fría<br></h4>
-                              <div class="price">
-                                <h6>#13</h6>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="tab-item">
-                              <img src="../../assets/images/tab-item-ensaladas-15.jpg" alt="">
-                              <h4><br>Jardinera de legunbres<br></h4>
-                              <div class="price">
-                                <h6>#14</h6>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              </section>
-            </div>
           </div>
-        </div>
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="row" id="tabs">
+                      <div class="col-lg-12">
+                          <div class="heading-tabs">
+                              <div class="row">
+                                  <div class="col-lg-4 offset-lg-4">
+                                      <ul>
+                                          <li><a href='#Arroces'><img src="../../assets/images/tab-icon-arroces.png"
+                                                      alt="">Arroces</a></li>
+                                          <li><a href='#Carnes'><img src="../../assets/images/tab-icon-carnes.png"
+                                                      alt="">Carnes</a></li>
+                                          <li><a href='#Guarniciones'><img
+                                                      src="../../assets/images/tab-icon-guarniciones.png"
+                                                      alt="">Guarniciones</a></li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-12">
+                          <section class='tabs-content'>
+                              <article id='Arroces'>
+                                  <div class="row">
+                                      <div class="col-lg-6">
+                                          <div class="row">
+                                              <div class="left-list">
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-arroz-1.jpg" alt="">
+                                                          <h4><br>Arroz de Novia<br></h4>
+                                                          <div class="price">
+                                                              <h6>#1</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-arroz-2.jpg" alt="">
+                                                          <h4>Arroz festivo con almendra<br></h4>
+                                                          <div class="price">
+                                                              <h6>#2</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-arroz-3.jpg" alt="">
+                                                          <h4>Arroz con tocino y champiñones</h4>
+                                                          <div class="price">
+                                                              <h6>#3</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-arroz-4.jpg" alt="">
+                                                          <h4>Arroz con choclo y crema</h4>
+                                                          <div class="price">
+                                                              <h6>#4</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-arroz-5.jpg" alt="">
+                                                          <h4><br>Arroz al perefil<br></h4>
+                                                          <div class="price">
+                                                              <h6>#5</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-arroz-6.jpg" alt="">
+                                                          <h4>Arroz con vino a las finas hierbas</h4>
+                                                          <div class="price">
+                                                              <h6>#6</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-arroz-7.jpg" alt="">
+                                                          <h4>Arroz con queso y almendra</h4>
+                                                          <div class="price">
+                                                              <h6>#7</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-arroz-8.jpg" alt="">
+                                                          <h4>Arroz cremoso con tocino al azafrán</h4>
+                                                          <div class="price">
+                                                              <h6>#8</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                          <div class="row">
+                                              <div class="right-list">
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-arroz-9.jpg" alt="">
+                                                          <h4><br>Arroz fiestero<br></h4>
+                                                          <div class="price">
+                                                              <h6>#9</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-arroz-10.jpg" alt="">
+                                                          <h4><br>Arroz de reyes<br></h4>
+                                                          <div class="price">
+                                                              <h6>#10</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-arroz-11.jpg" alt="">
+                                                          <h4><br>Arroz con nueces<br></h4>
+                                                          <div class="price">
+                                                              <h6>#11</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-arroz-12.jpg" alt="">
+                                                          <h4><br>Arroz al curry<br></h4>
+                                                          <div class="price">
+                                                              <h6>#12</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-arroz-13.jpg" alt="">
+                                                          <h4>Arroz 3 delicias (arbejita, zanahoria y jamon)</h4>
+                                                          <div class="price">
+                                                              <h6>#13</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-arroz-14.jpg" alt="">
+                                                          <h4><br>Arroz con perefil o albahaca<br></h4>
+                                                          <div class="price">
+                                                              <h6>#14</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-arroz-15.JPG" alt="">
+                                                          <h4><br>Arroz Festivo<br></h4>
+                                                          <div class="price">
+                                                              <h6>#15</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-arroz-16.jpg" alt="">
+                                                          <h4>Arroz con choclo</h4>
+                                                          <div class="price">
+                                                              <h6>#16</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </article>
+                              <article id='Carnes'>
+                                  <div class="row">
+                                      <div class="col-lg-6">
+                                          <div class="row">
+                                              <div class="left-list">
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-04.png" alt="">
+                                                          <h4>- Lomo Fino <br>- Pollo deshuesado en salsa BBQ</h4>
+                                                          <div class="price">
+                                                              <h6>#1</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-05.png" alt="">
+                                                          <h4>- Cerdo agridulce con piña o durazno<br>- Pollo en salsa
+                                                              de Jhon Fred</h4>
+                                                          <div class="price">
+                                                              <h6>#2</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-06.png" alt="">
+                                                          <h4>- Pollo en salsa de 5 sabores<br>- Lomo enrollado cerdo
+                                                              o res</h4>
+                                                          <div class="price">
+                                                              <h6>#3</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-06.png" alt="">
+                                                          <h4>- Cerdo en salsa de ciruela<br>- Pollo al Brandy</h4>
+                                                          <div class="price">
+                                                              <h6>#4</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-06.png" alt="">
+                                                          <h4>- Salón en salsa vino<br>- Medallones de pollo con
+                                                              espinaca y jamón en salsa dorada</h4>
+                                                          <div class="price">
+                                                              <h6>#5</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-06.png" alt="">
+                                                          <h4>- Medallones Hawái<br>- Salón en salsa vino</h4>
+                                                          <div class="price">
+                                                              <h6>#6</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-06.png" alt="">
+                                                          <h4>- Lomo fino en salsa de hongos Champiñones<br>- Pollo al
+                                                              Whisky y vainilla</h4>
+                                                          <div class="price">
+                                                              <h6>#7</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-06.png" alt="">
+                                                          <h4>- Pollo relleno de carne y tocino<br>- Jamón glaseado
+                                                              con piña</h4>
+                                                          <div class="price">
+                                                              <h6>#8</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                          <div class="row">
+                                              <div class="right-list">
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-01.png" alt="">
+                                                          <h4>- Pollo deshuesado con fruta<br>- Cerdo al Vodka</h4>
+                                                          <div class="price">
+                                                              <h6>#9</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-02.png" alt="">
+                                                          <h4>- Lomo fino en salsa de tocino<br>- Pollo deshuesado
+                                                              envinado</h4>
+                                                          <div class="price">
+                                                              <h6>#10</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-03.png" alt="">
+                                                          <h4>- Pollo en salsa de Champange<br>- Cerdo Hawái</h4>
+                                                          <div class="price">
+                                                              <h6>#11</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-01.png" alt="">
+                                                          <h4>- Medallones de lomo fino<br>- Pollo en salsa de queso y
+                                                              orégano</h4>
+                                                          <div class="price">
+                                                              <h6>#12</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-01.png" alt="">
+                                                          <h4>- Cerdo en salsa de Vodka y naranja<br>- Pollo en salsa
+                                                              de champiñones</h4>
+                                                          <div class="price">
+                                                              <h6>#13</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-01.png" alt="">
+                                                          <h4>- Cordón Blue<br>- Lasaña de Pollo / Carne</h4>
+                                                          <div class="price">
+                                                              <h6>#14</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-01.png" alt="">
+                                                          <h4>- Stick a la mostaza y pimienta<br>- Pollo con
+                                                              champiñones</h4>
+                                                          <div class="price">
+                                                              <h6>#15</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-01.png" alt="">
+                                                          <h4>- Pollo relleno con tocino jamón carne y queso
+                                                              cheldar<br>- Jamón glaseado con piña</h4>
+                                                          <div class="price">
+                                                              <h6>#16</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </article>
+                              <article id='Guarniciones'>
+                                  <div class="row">
+                                      <div class="col-lg-6">
+                                          <div class="row">
+                                              <div class="left-list">
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-ensaladas-1.jpg"
+                                                              alt="">
+                                                          <h4><br>Ensalada Hawaiana<br></h4>
+                                                          <div class="price">
+                                                              <h6>#1</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-ensaladas-2.jpg"
+                                                              alt="">
+                                                          <h4><br>Ensalada multicolor<br></h4>
+                                                          <div class="price">
+                                                              <h6>#2</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-ensaladas-3.jpg"
+                                                              alt="">
+                                                          <h4><br>Papas gratinadas<br></h4>
+                                                          <div class="price">
+                                                              <h6>#3</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-ensaladas-4.jpg"
+                                                              alt="">
+                                                          <h4>Ensalada fría o Lasaña de vegetales<br></h4>
+                                                          <div class="price">
+                                                              <h6>#4</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-ensaladas-5.jpg"
+                                                              alt="">
+                                                          <h4>Ensalada con choclo y jamón<br></h4>
+                                                          <div class="price">
+                                                              <h6>#5</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-ensaladas-6.jpg"
+                                                              alt="">
+                                                          <h4><br>Pastel de vegetales<br></h4>
+                                                          <div class="price">
+                                                              <h6>#6</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-ensaladas-8.jpg"
+                                                              alt="">
+                                                          <h4>Jardinera de legumbres al vapor<br></h4>
+                                                          <div class="price">
+                                                              <h6>#7</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                          <div class="row">
+                                              <div class="right-list">
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-ensaladas-9.jpg"
+                                                              alt="">
+                                                          <h4>Papas gratinadas con tocino y cebolla</h4>
+                                                          <div class="price">
+                                                              <h6>#8</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-ensaladas-10.jpg"
+                                                              alt="">
+                                                          <h4><br>Lasaña de vegetales<br></h4>
+                                                          <div class="price">
+                                                              <h6>#9</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-ensaladas-11.jpg"
+                                                              alt="">
+                                                          <h4><br>Ensalada Italiana fría<br></h4>
+                                                          <div class="price">
+                                                              <h6>#10</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-ensaladas-12.png"
+                                                              alt="">
+                                                          <h4><br>Vegetales a la yogurnesa<br></h4>
+                                                          <div class="price">
+                                                              <h6>#11</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-ensaladas-13.jpg"
+                                                              alt="">
+                                                          <h4>Papas gratinadas (con tocino, jamón y champiñones)</h4>
+                                                          <div class="price">
+                                                              <h6>#12</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-ensaladas-14.jpg"
+                                                              alt="">
+                                                          <h4><br>Pan de Ajo o ensalada fría<br></h4>
+                                                          <div class="price">
+                                                              <h6>#13</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-12">
+                                                      <div class="tab-item">
+                                                          <img src="../../assets/images/tab-item-ensaladas-15.jpg"
+                                                              alt="">
+                                                          <h4><br>Jardinera de legunbres<br></h4>
+                                                          <div class="price">
+                                                              <h6>#14</h6>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </article>
+                          </section>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
-    </div>
   </section>
   <!-- ***** Final del área de menú ***** -->
 
@@ -1178,18 +1033,12 @@
         <div class="col-lg-4 col-xs-12">
           <div class="right-text-content">
             <ul class="social-icons">
-              <!--<a href="https://www.youtube.com/channel/UCLTCyVZrQc7mdHSnbUKrcpA" target="_blank" rel="sponsored"><i class="fa fa-play"></i> </a>
-                                <li><a href="https://instagram.com/shalom_quevedo?igshid=YjNmNGQ3MDY="><i class="fa fa-instagram"></i></a></li>
-                                    <li><a href="https://www.facebook.com/ShalomRecepcionesQuevedo"><i class="fa fa-facebook"></i></a></li>-->
               <li><a href="https://www.facebook.com/ShalomRecepcionesQuevedo" target="_blank" rel="sponsored"><i
                     class="fa fa-facebook"></i></a></li>
-              <!--<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>-->
               <li><a href="https://instagram.com/shalom_quevedo?igshid=YjNmNGQ3MDY=" target="_blank" rel="sponsored"><i
                     class="fa fa-instagram"></i></a></li>
               <li><a href="https://www.youtube.com/channel/UCLTCyVZrQc7mdHSnbUKrcpA" target="_blank" rel="sponsored"><i
                     class="fa fa-youtube-play"></i></a></li>
-              <!-- <li><a href="https://www.google.com/maps/place/1%C2%B001'25.6%22S+79%C2%B027'38.9%22W/@-1.0237803,-79.4608115,17z/data=!3m1!4b1!4m4!3m3!8m2!3d-1.0237803!4d-79.4608115" target="_blank" rel="sponsored"><i class="fa fa-location-arrow"></i></a></li> -->
               <li><a
                   href="https://www.google.com/maps/place/Recepciones+%26+Eventos+Shalom/@-1.0236056,-79.463416,17z/data=!3m1!4b1!4m12!1m5!3m4!2zMcKwMDEnMjUuNiJTIDc5wrAyNyczOC45Ilc!8m2!3d-1.0237778!4d-79.4608056!3m5!1s0x902b4d9d56d59da5:0xb4ab53e538524140!8m2!3d-1.023611!4d-79.4608357!16s%2Fg%2F11ny5c9290"
                   target="_blank" rel="sponsored"><i class="fa fa-location-arrow"></i></a></li>
@@ -1206,9 +1055,8 @@
         </div>
         <div class="col-lg-4 col-xs-12">
           <div class="left-text-content">
+            <br>
             <p>© Copyright Shalom Recepciones & Eventos.
-
-              <!-- <br>Design by: Elvis Gonzales -->
             </p>
           </div>
         </div>

@@ -1,9 +1,7 @@
 import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
-
 import { HomeComponent } from "./components/home/home.component";
-
 import { MatToolbarModule } from "@angular/material/toolbar";
 
 @Component({

@@ -1,6 +1,5 @@
 import { Component, Input } from "@angular/core";
 import { RouterLink, RouterOutlet } from "@angular/router";
-import { HousingLocation } from "../../models/housing-location";
 
 import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
@@ -18,5 +17,4 @@ import { MatIconModule } from "@angular/material/icon";
 	styleUrl: "./housing-location.component.scss",
 })
 export class HousingLocationComponent {
-	@Input() housingLocation!: HousingLocation;
 }
