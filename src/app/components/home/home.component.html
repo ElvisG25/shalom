@@ -58,6 +58,16 @@
               <li class="scroll-to-section"><a href="#about">Quiénes somos</a></li>
               <li class="scroll-to-section"><a href="#menu">Menú</a></li>
               <li class="scroll-to-section"><a href="#Comentarios">Comentarios</a></li>
+              <li class="submenu">
+                <a href="#eventos">Eventos</a>
+                <ul>
+                  <li><a href="#eventos">Bodas</a></li>
+                  <li><a href="#eventos">Quinceañeras</a></li>
+                  <li><a href="#eventos">Graduaciones</a></li>
+                  <li><a href="#eventos">Cumpleaños</a></li>
+                  <li><a href="#eventos">Coorporativos</a></li>
+                </ul>
+              </li>
               <li class="scroll-to-section"><a href="#reservation">Contáctanos</a></li>
             </ul>
             <a class='menu-trigger'>
@@ -342,27 +352,25 @@
         <div class="cardmerg">
           <h5 class="title">¡Coméntanos!</h5>
           <button class="close-button" id="close-modal" type="button" onclick="cerrarModal()">X</button>
-          <form class="form">
+          <form class="form" (ngSubmit)="submitForm()">
             <div class="group">
-              <input placeholder="" type="text" required="">
-              <label for="name">Nombres</label>
+              <input placeholder="" type="text" id="nombres" name="nombres" required>
+              <label for="nombres">Nombres</label>
             </div>
             <div class="group">
-              <fieldset>
-                <select value="number-guests" name="number-guests" id="number-guests" required="">
-                  <option value="number-guests"></option>
-                  <option name="1" id="1" (select)="1">1</option>
-                  <option name="2" id="2">2</option>
-                  <option name="3" id="3">3</option>
-                  <option name="4" id="4">4</option>
-                  <option name="5" id="5">5</option>
-                </select>
-              </fieldset>
-              <label for="email">Estrellas</label>
+              <select id="valorizacion" name="valorizacion" required>
+                <option value=""></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              <label for="valorizacion">Estrellas</label>
             </div>
             <div class="group">
-              <textarea placeholder="" id="comment" name="comment" rows="5" required=""></textarea>
-              <label for="comment">Comentario</label>
+              <textarea placeholder="" id="comentario" name="comentario" rows="5" required></textarea>
+              <label for="comentario">Comentario</label>
             </div>
             <div class="button-container">
               <button class="cancel-button" onclick="cerrarModal()">Cancelar</button>
@@ -514,15 +522,18 @@
             <div class="col-lg-12">
               <div class="heading-tabs">
                 <div class="row">
-                    <div class="col-lg-4 offset-lg-4">
-                        <ul>
-                            <li><a href='#Arroces' (click)="selectTab('Arroces')"><img src="../../assets/images/tab-icon-arroces.png" alt="">Arroces</a></li>
-                            <li><a href='#Carnes' (click)="selectTab('Carnes')"><img src="../../assets/images/tab-icon-carnes.png" alt="">Carnes</a></li>
-                            <li><a href='#Guarniciones' (click)="selectTab('Guarniciones')"><img src="../../assets/images/tab-icon-guarniciones.png" alt="">Guarniciones</a></li>
-                        </ul>
-                    </div>
+                  <div class="col-lg-4 offset-lg-4">
+                    <ul>
+                      <li><a href='#Arroces' (click)="selectTab('Arroces')"><img
+                            src="../../assets/images/tab-icon-arroces.png" alt="">Arroces</a></li>
+                      <li><a href='#Carnes' (click)="selectTab('Carnes')"><img
+                            src="../../assets/images/tab-icon-carnes.png" alt="">Carnes</a></li>
+                      <li><a href='#Guarniciones' (click)="selectTab('Guarniciones')"><img
+                            src="../../assets/images/tab-icon-guarniciones.png" alt="">Guarniciones</a></li>
+                    </ul>
+                  </div>
                 </div>
-            </div>
+              </div>
             </div>
             <div class="col-lg-12">
               <section class='tabs-content'>

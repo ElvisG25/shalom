@@ -2,7 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { AppComponent } from "../../app.component";
 import { Observable } from 'rxjs';
-import { Firestore, collection, collectionData } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, addDoc } from '@angular/fire/firestore';
 import { CommonModule } from '@angular/common';
 import { CargarscriptsService } from '../../services/cargarscripts/cargarscripts.service';
 
@@ -22,6 +22,8 @@ export class HomeComponent implements OnInit {
 	item$: Observable<Item[]>;
 	firestore: Firestore = inject(Firestore);
 	cargarscripts: CargarscriptsService = inject(CargarscriptsService);
+	selectedTab: string = 'Arroces'; // Tab seleccionado por defecto
+	
 
 	constructor() {
 		const itemCollection = collection(this.firestore, 'Coments');
@@ -30,12 +32,11 @@ export class HomeComponent implements OnInit {
 	getStarsArray(valorizacion: number): number[] {
 		return Array(valorizacion).fill(0).map((_, index) => index + 1);
 	}
-	selectedTab: string = 'Arroces'; // Tab seleccionado por defecto
 
-    // Método para cambiar el tab seleccionado
-    selectTab(tabName: string) {
-        this.selectedTab = tabName;
-    }
+	// Método para cambiar el tab seleccionado
+	selectTab(tabName: string) {
+		this.selectedTab = tabName;
+	}
 	ngOnInit() {
 		this.cargarscripts.cargarScript('popper');
 		this.cargarscripts.cargarScript('jquery-2.1.0.min');
@@ -52,7 +53,69 @@ export class HomeComponent implements OnInit {
 		this.cargarscripts.cargarScript('isotope');
 		this.cargarscripts.cargarScript('lightbox');
 	}
+	submitForm() {
+		// Accede al formulario
+		const form = document.querySelector('.form') as HTMLFormElement;
+		
+		// Obtiene los valores del formulario
+		const nombres = (form.querySelector('#nombres') as HTMLInputElement).value;
+		const valorizacion = parseInt((form.querySelector('#valorizacion') as HTMLInputElement).value);
+		const comentario = (form.querySelector('#comentario') as HTMLInputElement).value;
+	
+		// Valida que los campos no estén vacíos
+		if (nombres && valorizacion && comentario) {
+		  // Agrega el comentario a Firestore
+		  addDoc(collection(this.firestore, 'Coments'), { nombres, valorizacion, comentario })
+			.then(() => {
+			  // Limpia el formulario después de enviar el comentario
+			  form.reset();
+			  // Cierra el modal
+			  this.cerrarModal();
+			  // Opcional: Puedes mostrar un mensaje de éxito al usuario si lo deseas
+			  alert('Comentario enviado exitosamente');
+			})
+			.catch((error) => {
+			  console.error('Error al enviar el comentario: ', error);
+			  // Opcional: Puedes mostrar un mensaje de error al usuario si lo deseas
+			  alert('Error al enviar el comentario. Por favor, inténtalo de nuevo más tarde.');
+			});
+		} else {
+		  // Opcional: Puedes mostrar un mensaje de error al usuario si algún campo está vacío
+		  alert('Por favor, completa todos los campos del formulario.');
+		}
+	  }
+	  cerrarModal() {
+		const modal = document.getElementById('modal');
+		if (modal) {
+			modal.style.display = 'none';
+		  }
+	}
+	// submitForm() {
+	// 	const form = document.querySelector('.form') as HTMLFormElement;
+
+	// 	// Obtener valores del formulario
+	// 	const nombresInput = form.querySelector('#nombres') as HTMLInputElement;
+	// 	const valorizacionInput = form.querySelector('#valorizacion') as HTMLInputElement;
+	// 	const comentarioInput = form.querySelector('#comentario') as HTMLInputElement;
+	// 	const nombres = nombresInput.value;
+	// 	const valorizacion = valorizacionInput.value;
+	// 	const comentario = comentarioInput.value;
+
+	// 	// Guardar comentario en Firestore
+	// 	const commentsCollection = collection(this.firestore, 'Coments');
+	// 	addDoc(commentsCollection, { nombres, valorizacion, comentario })
+	// 		.then(() => {
+	// 			// Limpiar el formulario después de enviarlo con éxito
+	// 			form.reset();
+	// 			// También podrías agregar alguna lógica adicional aquí, como mostrar un mensaje de éxito
+	// 		})
+	// 		.catch((error) => {
+	// 			console.error('Error al enviar el comentario:', error);
+	// 			// Aquí puedes manejar el error de alguna manera si lo deseas
+	// 		});
+	// }
 }
+
 //}
 // import { Component, OnInit, inject } from "@angular/core";
 // import { HousingLocationComponent } from "../housing-location/housing-location.component";
