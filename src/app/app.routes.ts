@@ -7,12 +7,12 @@ import { EventoComponent } from "./components/pages/evento/evento.component";
 
 
 export const routes: Routes = [
-	{path:'',component:DashboardComponent},
+	{path:'',component:HomeComponent},
 	{path:'dashboard',component:DashboardComponent},
 	{path:'evento',component:EventoComponent},
 	{path:'home',component:HomeComponent},
     {path:'login',component:LoginComponent},
 	{path:'eventos',component:EventosComponent},
-	{path:'**',pathMatch:'full',redirectTo:'dashboard'},
+	//{path:'**',pathMatch:'full',redirectTo:'dashboard'},
     {path:'**',pathMatch:'full',redirectTo:'home'}
 ];

@@ -352,7 +352,34 @@
         <div class="cardmerg">
           <h5 class="title">¡Coméntanos!</h5>
           <button class="close-button" id="close-modal" type="button" onclick="cerrarModal()">X</button>
-          <form class="form" (ngSubmit)="submitForm()">
+
+          <form [formGroup]="ingresocomentario" (submit)="onSubmit()">
+            <div class="group">
+              <label for="nombres" class="form-label">nombres</label>
+              <input type="text" class="form-control" id="nombres" placeholder="nombres" formControlName="nombres">
+              @if (ingresocomentario.get('nombres')?.hasError('required') && ingresocomentario.get('nombres')?.touched)
+              {
+              <div class="form-text text-danger fw-bold">Los nombres son requeridos.</div>
+              }
+            </div>
+            <div class="group">
+              <select id="valorizacion" name="valorizacion" formControlName="valoracion">
+                <option value="1" >1</option>
+                <option value="2" >2</option>
+                <option value="3" >3</option>
+                <option value="4" >4</option>
+                <option value="5" >5</option>
+              </select>
+              <label for="valorizacion">Estrellas</label>
+            </div>
+            <div class="group">
+              <label for="comentario" class="form-label">Comentario</label>
+              <textarea class="form-control" id="comentario" rows="3" formControlName="comentarios"></textarea>
+            </div>
+            <button type="submit" class="send-button">Enviar</button>
+          </form>
+
+          <!-- <form class="form" (ngSubmit)="submitForm()">
             <div class="group">
               <input placeholder="" type="text" id="nombres" name="nombres" required>
               <label for="nombres">Nombres</label>
@@ -376,16 +403,29 @@
               <button class="cancel-button" onclick="cerrarModal()">Cancelar</button>
               <button class="send-button" type="submit">Enviar</button>
             </div>
-          </form>
+          </form> -->
         </div>
       </div>
       <div class="top-header">
         <h1>Comentarios y Recomendaciones</h1>
       </div>
       <br>
+
       <div class="project-container">
-        <ng-container *ngFor="let item of item$ | async; let i = index">
-          <div *ngIf="i < 6" class="project-box"> <!-- Agrega esta línea para limitar a los primeros 6 comentarios -->
+        @for (comentario of comentarios; track $index) {
+          <div *ngIf="$index < 6" class="project-box"> 
+          <div class="card-body">
+            <h3 class="card-title">{{comentario.nombres}}</h3>
+            <p class="card-text">{{comentario.comentarios}}</p>
+            <div class="star-rating">              
+              <span class="star">{{comentario.valoracion}} &#9733;</span>
+            </div>
+          </div>
+        </div>
+        }
+
+        <!-- <ng-container *ngFor="let item of item$ | async; let i = index">
+          <div *ngIf="i < 6" class="project-box"> 
             <div class="card-body">
               <h3 class="card-title">{{ item.nombres }}</h3>
               <p class="card-text">{{ item.comentario }}</p>
@@ -394,7 +434,8 @@
               </div>
             </div>
           </div>
-        </ng-container>
+        </ng-container> -->
+
       </div>
     </div>
   </section>
