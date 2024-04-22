@@ -11,11 +11,11 @@ import { ServicioService } from '../../core/services/servicio.service';
 import { FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
 
-/*interface Item {
-	nombres: string,
-	valorizacion: number,
-	comentario: string,
-};*/
+// interface Item {
+// 	nombres: string,
+// 	valorizacion: number,
+// 	comentario: string,
+// };
 @Component({
 	selector: "app-home",
 	standalone: true,
@@ -24,8 +24,8 @@ import { FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule } 
 	styleUrl: "./home.component.scss",
 })
 export class HomeComponent implements OnInit {
-	//item$: Observable<Item[]>;
-	//firestore: Firestore = inject(Firestore);
+	// item$: Observable<Item[]>;
+	// firestore: Firestore = inject(Firestore);
 	cargarscripts: CargarscriptsService = inject(CargarscriptsService);
 	selectedTab: string = 'Arroces'; // Tab seleccionado por defecto
 	comentarios: Icoments[] = [];
@@ -42,11 +42,14 @@ export class HomeComponent implements OnInit {
 				valoracion: new FormControl("", [Validators.required]),				
 				comentarios: new FormControl("")
 			  })
-		/*const itemCollection = collection(this.firestore, 'Coments');
-		this.item$ = collectionData(itemCollection) as Observable<Item[]>;*/
+		// const itemCollection = collection(this.firestore, 'Coments');
+		// this.item$ = collectionData(itemCollection) as Observable<Item[]>;
 
 	}
 
+	generateArray(num: number): any[] {
+		return Array(num).fill(0);
+	  }
 	getStarsArray(valorizacion: number): number[] {		
 		return Array(valorizacion).fill(0).map((_, index) => index + 1);
 	}
@@ -112,68 +115,7 @@ export class HomeComponent implements OnInit {
 	}
 }
 
-/*submitForm() {
-		// Accede al formulario
-		const form = document.querySelector('.form') as HTMLFormElement;
-		
-		// Obtiene los valores del formulario
-		const nombres = (form.querySelector('#nombres') as HTMLInputElement).value;
-		const valorizacion = parseInt((form.querySelector('#valorizacion') as HTMLInputElement).value);
-		const comentario = (form.querySelector('#comentario') as HTMLInputElement).value;
-	
-		// Valida que los campos no estén vacíos
-		if (nombres && valorizacion && comentario) {
-		  // Agrega el comentario a Firestore
-		  addDoc(collection(this.firestore, 'Coments'), { nombres, valorizacion, comentario })
-			.then(() => {
-			  // Limpia el formulario después de enviar el comentario
-			  form.reset();
-			  // Cierra el modal
-			  this.cerrarModal();
-			  // Opcional: Puedes mostrar un mensaje de éxito al usuario si lo deseas
-			  alert('Comentario enviado exitosamente');
-			})
-			.catch((error) => {
-			  console.error('Error al enviar el comentario: ', error);
-			  // Opcional: Puedes mostrar un mensaje de error al usuario si lo deseas
-			  alert('Error al enviar el comentario. Por favor, inténtalo de nuevo más tarde.');
-			});
-		} else {
-		  // Opcional: Puedes mostrar un mensaje de error al usuario si algún campo está vacío
-		  alert('Por favor, completa todos los campos del formulario.');
-		}
-	  }
-	  cerrarModal() {
-		const modal = document.getElementById('modal');
-		if (modal) {
-			modal.style.display = 'none';
-		  }
-	}*/
 
-// submitForm() {
-	// 	const form = document.querySelector('.form') as HTMLFormElement;
-
-	// 	// Obtener valores del formulario
-	// 	const nombresInput = form.querySelector('#nombres') as HTMLInputElement;
-	// 	const valorizacionInput = form.querySelector('#valorizacion') as HTMLInputElement;
-	// 	const comentarioInput = form.querySelector('#comentario') as HTMLInputElement;
-	// 	const nombres = nombresInput.value;
-	// 	const valorizacion = valorizacionInput.value;
-	// 	const comentario = comentarioInput.value;
-
-	// 	// Guardar comentario en Firestore
-	// 	const commentsCollection = collection(this.firestore, 'Coments');
-	// 	addDoc(commentsCollection, { nombres, valorizacion, comentario })
-	// 		.then(() => {
-	// 			// Limpiar el formulario después de enviarlo con éxito
-	// 			form.reset();
-	// 			// También podrías agregar alguna lógica adicional aquí, como mostrar un mensaje de éxito
-	// 		})
-	// 		.catch((error) => {
-	// 			console.error('Error al enviar el comentario:', error);
-	// 			// Aquí puedes manejar el error de alguna manera si lo deseas
-	// 		});
-	// }
 
 
 
