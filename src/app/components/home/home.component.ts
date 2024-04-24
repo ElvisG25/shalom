@@ -9,6 +9,7 @@ import { Router, RouterModule } from '@angular/router';
 import { Icoments } from '../../models/common.models';
 import { ServicioService } from '../../core/services/servicio.service';
 import { FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 
 // interface Item {
@@ -31,17 +32,14 @@ export class HomeComponent implements OnInit {
 	comentarios: Icoments[] = [];
 	ingresocomentario!: FormGroup;
 	router: any;
-
-	
-
 	constructor(
-		private servicioServicio: ServicioService, 
+		private servicioServicio: ServicioService,
 		private fb: FormBuilder) {
-			this.ingresocomentario = this.fb.group({
-				nombres: new FormControl("", [Validators.required]),
-				valoracion: new FormControl("", [Validators.required]),				
-				comentarios: new FormControl("")
-			  })
+		this.ingresocomentario = this.fb.group({
+			nombres: new FormControl("", [Validators.required]),
+			valoracion: new FormControl("", [Validators.required]),
+			comentarios: new FormControl("")
+		})
 		// const itemCollection = collection(this.firestore, 'Coments');
 		// this.item$ = collectionData(itemCollection) as Observable<Item[]>;
 
@@ -49,8 +47,8 @@ export class HomeComponent implements OnInit {
 
 	generateArray(num: number): any[] {
 		return Array(num).fill(0);
-	  }
-	getStarsArray(valorizacion: number): number[] {		
+	}
+	getStarsArray(valorizacion: number): number[] {
 		return Array(valorizacion).fill(0).map((_, index) => index + 1);
 	}
 
@@ -59,7 +57,7 @@ export class HomeComponent implements OnInit {
 		this.selectedTab = tabName;
 	}
 
-	ngOnInit(): void  {
+	ngOnInit() {
 		this.cargarscripts.cargarScript('popper');
 		this.cargarscripts.cargarScript('jquery-2.1.0.min');
 		this.cargarscripts.cargarScript('bootstrap.min');
@@ -73,118 +71,55 @@ export class HomeComponent implements OnInit {
 		this.cargarscripts.cargarScript('slick');
 		this.cargarscripts.cargarScript('lightbox');
 		this.cargarscripts.cargarScript('isotope');
-		this.cargarscripts.cargarScript('lightbox');
 		this.getAllComentarios();
 	}
-	
-	getAllComentarios(){
+
+	getAllComentarios() {
 		this.servicioServicio
 			.getAllcomentarios()
 			.snapshotChanges()
 			.subscribe({
 				next: (data) => {
-					this.comentarios=[];
-		  
-					data.forEach((item) =>{
-					  let comentario = item.payload.toJSON() as Icoments;
-					  this.comentarios.push({
-						key: item.key || '',
-						nombres: comentario.nombres,
-						comentarios: comentario.comentarios,
-						valoracion: comentario.valoracion,
-					  })
+					this.comentarios = [];
+					data.forEach((item) => {
+						let comentario = item.payload.toJSON() as Icoments;
+						this.comentarios.push({
+							key: item.key || '',
+							nombres: comentario.nombres,
+							comentarios: comentario.comentarios,
+							valoracion: comentario.valoracion,
+						})
 					})
 				}
 			})
 	}
 
-	onSubmit(){
+	onSubmit() {
 		if (this.ingresocomentario.valid) {
 			this.servicioServicio.addcomentarios(this.ingresocomentario.value);
-      		this.router.navigate(['/'])
-    	} else {
-      		this.ingresocomentario.markAllAsTouched();
-    	}
+			// Mostrar SweetAlert después de que se carguen los comentarios
+			this.mostrarSweetAlert();
+			this.ingresocomentario.reset(); // Limpia los campos del formulario
+			this.cerrarModal();
+			this.router.navigate(['/'])
+		} else {
+			this.ingresocomentario.markAllAsTouched();
+		}
 	}
 
+	mostrarSweetAlert() {
+		Swal.fire({
+			position: "top-end",
+			icon: "success",
+			title: "Tu comentario se ha guardado",
+			showConfirmButton: false,
+			timer: 1500
+		});
+	}
 	cerrarModal() {
 		const modal = document.getElementById('modal');
 		if (modal) {
 			modal.style.display = 'none';
-		  }
+		}
 	}
 }
-
-
-
-
-
-
-
-
-//}
-// import { Component, OnInit, inject } from "@angular/core";
-// import { HousingLocationComponent } from "../housing-location/housing-location.component";
-// import { HousingLocation } from "../../models/housing-location";
-// import { HousingService } from "../../services/housing.service";
-// import { FormBuilder, FormGroup, ReactiveFormsModule  } from "@angular/forms";
-
-// import { MatFormFieldModule } from "@angular/material/form-field";
-// import { MatInputModule } from "@angular/material/input";
-// import {MatButtonModule} from '@angular/material/button';
-// import {MatTooltipModule} from '@angular/material/tooltip';
-// import { MatIconModule } from "@angular/material/icon";
-
-// @Component({
-// 	selector: "app-home",
-// 	standalone: true,
-// 	imports: [
-// 		HousingLocationComponent,
-//     ReactiveFormsModule,
-// 		MatFormFieldModule,
-// 		MatInputModule,
-//     MatButtonModule,
-//     MatTooltipModule,
-// 		MatIconModule,
-// 	],
-// 	templateUrl: "./home.component.html",
-// 	styleUrl: "./home.component.scss",
-// })
-// export class HomeComponent implements OnInit {
-// 	housingLocationList: HousingLocation[] = [];
-// 	housingService: HousingService = inject(HousingService);
-// 	filteredLocationList: HousingLocation[] = [];
-//   results = true;
-
-//   filterForm: FormGroup;
-
-// 	constructor(private formBuilder: FormBuilder) {
-//     this.filterForm = this.formBuilder.group({
-//       filter: [''],
-//     });
-// 	}
-
-//   ngOnInit() {
-//     this.housingService.getAllHousingLocations().subscribe((data) => {
-// 			this.housingLocationList = data;
-// 			this.filteredLocationList = this.housingLocationList;
-// 		});
-//   }
-
-// 	filterResults() {
-//     const text = this.filterForm.get('filter')?.value;
-// 		if (!text) {
-// 			this.filteredLocationList = this.housingLocationList;
-// 		}
-
-// 		this.filteredLocationList = this.housingLocationList.filter(
-// 			(housingLocation) =>
-// 				housingLocation.city.toLowerCase().includes(text.toLowerCase())
-// 		);
-// 	}
-
-//   clearFilter() {
-//     this.filteredLocationList = [...this.housingLocationList];
-//     this.filterForm.get('filter')?.setValue('');
-//   }
-// }

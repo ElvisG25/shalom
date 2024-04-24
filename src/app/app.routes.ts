@@ -4,6 +4,7 @@ import { LoginComponent } from "./components/login/login.component";
 import { EventosComponent } from "./components/eventos/eventos.component";
 import { DashboardComponent } from "./components/pages/dashboard/dashboard.component";
 import { EventoComponent } from "./components/pages/evento/evento.component";
+import { BodasComponent } from "./components/eventos/bodas/bodas.component";
 
 
 export const routes: Routes = [
@@ -13,6 +14,6 @@ export const routes: Routes = [
 	{path:'home',component:HomeComponent},
     {path:'login',component:LoginComponent},
 	{path:'eventos',component:EventosComponent},
-	//{path:'**',pathMatch:'full',redirectTo:'dashboard'},
+	{path:'bodas',component:BodasComponent},
     {path:'**',pathMatch:'full',redirectTo:'home'}
 ];

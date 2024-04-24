@@ -1,16 +1,4 @@
-<!-- <form [formGroup]="filterForm">
-  <mat-form-field>
-    <input matInput formControlName="filter" type="text" placeholder="Filter by city">
-  </mat-form-field>
-  <mat-icon matSuffix (click)="filterResults()" matTooltip="Filter" matTooltipPosition="above">search</mat-icon>
-  <mat-icon (click)="clearFilter()" matTooltip="Clear Filter" matTooltipPosition="above">refresh</mat-icon>
-</form>
-<section class="result">
-  @for (housingLocation of filteredLocationList; track housingLocation) { <app-housing-location
-    [housingLocation]="housingLocation"></app-housing-location> }
-</section> -->
-<!-- <p>home works!</p> -->
-<!-- <button routerLink="/login"> Go to do Login</button> -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,9 +47,9 @@
               <li class="scroll-to-section"><a href="#menu">Menú</a></li>
               <li class="scroll-to-section"><a href="#Comentarios">Comentarios</a></li>
               <li class="submenu">
-                <a href="#eventos">Eventos</a>
+                <a >Eventos</a>
                 <ul>
-                  <li><a href="#eventos">Bodas</a></li>
+                  <li><a href="bodas">Bodas</a></li>
                   <li><a href="#eventos">Quinceañeras</a></li>
                   <li><a href="#eventos">Graduaciones</a></li>
                   <li><a href="#eventos">Cumpleaños</a></li>
@@ -378,34 +366,7 @@
             </div>
               <button class="cancel-button" onclick="cerrarModal()">Cancelar</button>
               <button class="send-button" type="submit">Enviar</button>
-            <!-- <button type="submit" class="send-button">Enviar</button> -->
           </form>
-
-          <!-- <form class="form" (ngSubmit)="submitForm()">
-            <div class="group">
-              <input placeholder="" type="text" id="nombres" name="nombres" required>
-              <label for="nombres">Nombres</label>
-            </div>
-            <div class="group">
-              <select id="valorizacion" name="valorizacion" required>
-                <option value=""></option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-              <label for="valorizacion">Estrellas</label>
-            </div>
-            <div class="group">
-              <textarea placeholder="" id="comentario" name="comentario" rows="5" required></textarea>
-              <label for="comentario">Comentario</label>
-            </div>
-            <div class="button-container">
-              <button class="cancel-button" onclick="cerrarModal()">Cancelar</button>
-              <button class="send-button" type="submit">Enviar</button>
-            </div>
-          </form> -->
         </div>
       </div>
       <div class="top-header">
