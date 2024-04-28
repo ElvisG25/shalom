@@ -9,7 +9,8 @@ import { Page404Component } from "./components/page404/page404.component";
 
 
 export const routes: Routes = [
-	{path:'',component:HomeComponent},
+	//{path:'',component:HomeComponent},
+	{path: '', redirectTo:'/home', pathMatch:'full'},
 	{path:'dashboard',component:DashboardComponent},
 	{path:'evento',component:EventoComponent},
 	{path:'home',component:HomeComponent},
